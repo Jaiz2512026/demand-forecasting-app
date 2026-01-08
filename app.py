@@ -7,12 +7,20 @@ import utils
 # Set page config
 st.set_page_config(page_title="One Click Forecasting Model", layout="wide")
 
+import os
+
 # Header with Logos
 c_logo1, c_logo2, c_title = st.columns([1, 1, 4])
 with c_logo1:
-    st.image("assets/iimu_logo.png", width=150)
+    if os.path.exists("assets/iimu_logo.png"):
+        st.image("assets/iimu_logo.png", width=150)
+    else:
+        st.write("IIMU") # Fallback text
 with c_logo2:
-    st.image("assets/o9_logo.png", width=100)
+    if os.path.exists("assets/o9_logo.png"):
+        st.image("assets/o9_logo.png", width=100)
+    else:
+        st.write("o9 Solutions") # Fallback text
     
 with c_title:
     st.title("One Click Forecasting Model")
